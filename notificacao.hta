@@ -18,25 +18,21 @@
       background-color: black;
       overflow: hidden;
       font-family: Segoe UI, sans-serif;
-      -moz-border-radius: 15px;
-      -webkit-border-radius: 15px;
     }
     #toast {
       padding: 0 0 0 10%;
       color: white;
       border-radius: 16px;
       animation: slidein 0.6s ease-out forwards;
-      -moz-border-radius: 15px;
-      -webkit-border-radius: 15px;
     }
-    #toast h1 {
-      font-size: 18px;
+    #toast h2 {
+      font-size: 23px;
       margin: 0 0 5px 0;
       font-weight: 600;
     }
     #toast p {
       margin: 0 0 10px 0;
-      font-size: 14px;
+      font-size: 15px;
     }
     @keyframes slidein {
       from { opacity: 0; transform: translateY(50px); }
@@ -50,24 +46,30 @@
       animation: slideout 0.6s ease-in forwards;
     }
   </style>
-  <script>
-    function fechar() {
-      var toast = document.getElementById("toast");
-      toast.classList.add("closing");
-      setTimeout(function(){ window.close(); }, 10000);
-    }
-    // Fechar automaticamente após 12s
-    setTimeout(fechar, 5000);
-    // Reposicionar no canto inferior direito
-    window.resizeTo(460,200);
-    window.moveTo(screen.availWidth-460, screen.availHeight-220);
-  </script>
 </head>
 <body>
   <div id="toast">
-    <img src="EVERCO-branco.png" alt="Logo EVERCO" width="150">
-    <h1>Saia dai</h1>
-    <p>Hoje às 18h haverá manutenção.<br>Salve seus arquivos antes desse horário.</p>
+    <img src="https://lh3.googleusercontent.com/d/1VEpvGV-AiDWBemHLKW2Z7eXwuvWbO7vk" alt="Logo EVERCO" width="150">
+    <h2>Pausa Rápida</h2>
+    <p>Ajuste sua postura, alongue o corpo e olhe para o horizonte por alguns segundos. <b>Seu bem-estar agradece!</b></p>
   </div>
+
+  <script>
+    function fechar() {
+      var toast = document.getElementById("toast");
+      if (toast) {
+        toast.className += " closing";
+        setTimeout(function(){ window.close(); }, 10000);
+      }
+    }
+    // Espera o DOM carregar
+    window.onload = function() {
+      // Fechar automaticamente após 5s
+      setTimeout(fechar, 5000);
+      // Reposicionar no canto inferior direito
+      window.resizeTo(460,200);
+      window.moveTo(screen.availWidth-460, screen.availHeight-220);
+    };
+  </script>
 </body>
 </html>
