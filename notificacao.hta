@@ -50,25 +50,24 @@
 <body>
   <div id="toast">
     <img src="https://lh3.googleusercontent.com/d/1VEpvGV-AiDWBemHLKW2Z7eXwuvWbO7vk" alt="Logo EVERCO" width="150">
+    <span id="fecharToast" style="position: absolute; right: 40px; top: 20px; cursor: pointer; font-size: 20px;" onclick="fechar()"><b>x</b></span>
     <h2>Pausa Rápida</h2>
     <p>Ajuste sua postura, alongue o corpo e olhe para o horizonte por alguns segundos. <b>Seu bem-estar agradece!</b></p>
   </div>
 
   <script>
     function fechar() {
-      var toast = document.getElementById("toast");
-      if (toast) {
-        toast.className += " closing";
-        setTimeout(function(){ window.close(); }, 10000);
-      }
+      window.close()
+      
     }
     // Espera o DOM carregar
     window.onload = function() {
-      // Fechar automaticamente após 5s
-      setTimeout(fechar, 5000);
-      // Reposicionar no canto inferior direito
-      window.resizeTo(460,200);
+    
+      setTimeout(fechar, 15000);
+     
+      window.resizeTo(460,220);
       window.moveTo(screen.availWidth-460, screen.availHeight-220);
+
     };
   </script>
 </body>
